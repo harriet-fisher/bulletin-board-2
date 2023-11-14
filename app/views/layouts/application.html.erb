@@ -13,6 +13,10 @@
   <body>
     <nav>
       <a href="/">Bulletin Board</a>
+      <% if ! current_user %>
+        <a href="/users/sign_up">Sign up</a>
+        <a href="/users/sign_in">Sign in</a>
+      <% end %>
     </nav>
 
     <hr>
