@@ -9,9 +9,16 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  board_id   :integer
+#  user_id    :integer
 #
 class Post < ApplicationRecord
   validates(:title, presence: true)
   validates(:body, presence: true)
   validates(:expires_on, presence: true)
+
+  belongs_to(:owner, class_name: "Board", foreign_key: "user_id")
+  has_many(:posts,
+    class_name: "Post",
+    foreign_key: "board_id"
+  )
 end

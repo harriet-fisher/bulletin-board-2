@@ -4,6 +4,12 @@
       <%= @the_board.name %>
     </h1>
   </div>
+  <% if @the_board.user.present? %>
+    <p>Owner: <%= @the_board.user.email %></p>
+  <% end %>
+  <% if @the_board.user == current_user %>
+    <a href="delete_board/<%@the_board.id%>">Delete Board</a>
+  <% end %>
 </div>
 
 <hr>
@@ -52,6 +58,7 @@
   <tr>
     <th>Title</th>
     <th>Body</th>
+    <th>Posted by</th>
     <th>Posted on</th>
     <th>Expires on</th>
   </tr>

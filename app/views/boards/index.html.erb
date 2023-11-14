@@ -23,7 +23,6 @@
           </label>
           <input type="text" id="name_box" name="query_name">
         </div>
-
         <button>
           Add board
         </button>
@@ -39,8 +38,11 @@
     <li>
       <a href="/boards/<%= a_board.id %>">
         <%= a_board.name %>
-        <%= a_board.owner.email %>
-      </a>
+      </a><br>
+      <% if a_board.user.present? %>
+        <span>Owner: <%= a_board.user.email %></span>
+      <% end %>
+      <hr>
     </li>
   <% end %>
 </ul>
