@@ -7,9 +7,6 @@
   <% if @the_board.user.present? %>
     <p>Owner: <%= @the_board.user.email %></p>
   <% end %>
-  <% if @the_board.user == current_user %>
-    <a href="delete_board/<%@the_board.id%>">Delete Board</a>
-  <% end %>
 </div>
 
 <hr>
@@ -67,6 +64,7 @@
     <tr>
       <td><%= a_post.title %></td>
       <td><%= a_post.body %></td>
+      <td><%= a_post.user_id%></td>
       <td><%= a_post.created_at.strftime("%b %e, %Y") %></td>
       <td><%= a_post.expires_on.strftime("%b %e, %Y") %></td>
     </tr>
